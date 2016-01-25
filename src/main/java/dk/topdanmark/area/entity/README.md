@@ -1,6 +1,8 @@
 # Adding a new Type
 Remember to extend Area, when adding a new type for calculating areas.
 
-```
-Triangle extends Area
+```java
+public class Triangle extends Area{
+
+}
 ```
