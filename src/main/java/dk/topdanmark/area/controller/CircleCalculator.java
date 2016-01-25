@@ -7,6 +7,8 @@ package dk.topdanmark.area.controller;
 
 import dk.topdanmark.area.entity.Circle;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -15,9 +17,19 @@ import javax.ejb.Stateless;
 @Stateless
 public class CircleCalculator {
     
+    @PersistenceContext()
+    EntityManager em;
+    
+    
     public Circle calculateArea(double radius){
         Circle circle = new Circle();
         circle.area = (Math.PI * Math.pow(radius, 2)); 
         return circle;
     }
+    
+    public void saveCircle(Circle circle){
+        em.persist(circle);
+    }
+    
+    
 }
