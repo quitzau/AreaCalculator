@@ -28,14 +28,19 @@ public class AreaResource {
     @Path("circle/{radius}/")
     @Produces({MediaType.APPLICATION_JSON})
     public Circle calculateCircleArea(@NotNull @PathParam("radius") double radius){
-        return circleCalculator.calculateArea(radius);
+        final Circle circle = circleCalculator.calculateArea(radius);
+        circleCalculator.saveCircle(circle);
+        return circle;
+        
     }
        
     @GET
     @Path("square/{side}/")
     @Produces({MediaType.APPLICATION_JSON})
     public Square calculateSquareArea(@NotNull @PathParam("side") double side){
-        return squareCalculator.calculateArea(side);
+        final Square square = squareCalculator.calculateArea(side);
+        squareCalculator.saveSquare(square);
+        return square;
     }
             
             

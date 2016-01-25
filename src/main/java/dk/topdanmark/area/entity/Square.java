@@ -5,10 +5,17 @@
  */
 package dk.topdanmark.area.entity;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author jpq
  */
 public class Square extends Area {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO) 
+    private Integer id;
     
 }
